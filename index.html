@@ -3,310 +3,248 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mahfuz Portfolio</title>
+  <title>Home | Mr. Mahfuz — Ethical Hacker</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-    * {margin:0;padding:0;box-sizing:border-box;}
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      background: radial-gradient(circle at top left,#000010,#01030a,#030c1c);
-      color:#fff;
-      font-family:'Orbitron',sans-serif;
-      overflow-x:hidden;
+      font-family: 'Orbitron', sans-serif;
+      background: #02010a;
+      color: #e0f7fa;
+      overflow-x: hidden;
     }
 
-    /* Header */
-    header {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:20px 60px;
-      background:rgba(0,0,0,0.3);
-      border-bottom:2px solid #0ff;
-      box-shadow:0 0 20px #0ff;
-      position:sticky;
-      top:0;
-      z-index:1000;
-    }
-    header .logo svg {
-      width:40px;
-      height:40px;
-      filter:drop-shadow(0 0 10px #0ff);
+    /* ===== Navbar ===== */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #030314;
+      box-shadow: 0 0 10px #00fff0;
+      position: relative;
     }
 
-    nav ul {
-      display:flex;
-      list-style:none;
+    .logo {
+      color: #00fff0;
+      font-weight: 700;
+      font-size: 1.6rem;
     }
-    nav ul li {margin-left:30px;}
-    nav ul li a {
-      text-decoration:none;
-      color:#0ff;
-      font-weight:600;
-      transition:0.3s;
+    .logo span { color: #ff00ff; }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
     }
-    nav ul li a:hover {
-      color:#f0f;
-      text-shadow:0 0 15px #f0f,0 0 25px #f0f;
+    .nav-links li { margin: 0 1rem; }
+    .nav-links a {
+      color: #00fff0;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: #ff00ff; }
+
+    /* ===== Hamburger ===== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .bar {
+      height: 3px;
+      width: 25px;
+      background-color: #00fff0;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: 0.3s;
     }
 
-    /* Mobile menu */
-    .menu-toggle {
-      display:none;
-      flex-direction:column;
-      cursor:pointer;
-    }
-    .menu-toggle span {
-      height:3px;
-      width:25px;
-      background:#0ff;
-      margin:4px 0;
-      transition:0.4s;
+    /* ===== Hero Section ===== */
+    .hero {
+      text-align: center;
+      padding: 5rem 1rem;
     }
 
-    /* Hero */
-    .hero {text-align:center;padding:100px 20px;}
-    .skull {
-      width:120px;margin:0 auto;
-      filter:drop-shadow(0 0 25px red) drop-shadow(0 0 50px red);
-      animation:pulse 2s infinite alternate;
-    }
-    @keyframes pulse {
-      from{filter:drop-shadow(0 0 10px red) drop-shadow(0 0 20px red);}
-      to{filter:drop-shadow(0 0 25px #ff0044) drop-shadow(0 0 60px #ff0044);}
-    }
-    .glow-text {
-      font-size:2.5em;color:#0ff;
-      text-shadow:0 0 20px #0ff,0 0 40px #0ff;
-      margin-top:20px;
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      box-shadow: 0 0 30px #00fff0;
+      margin-bottom: 1.5rem;
+      object-fit: cover;
     }
 
-    /* Social Icons */
-    .social-icons {
-      margin-top:30px;
-      display:flex;
-      justify-content:center;
-      gap:25px;
-      flex-wrap:wrap;
-    }
-    .social-icons a svg {
-      width:28px;height:28px;
-      fill:#0ff;
-      transition:0.3s;
-      filter:drop-shadow(0 0 10px #0ff);
-    }
-    .social-icons a:hover svg {
-      fill:#f0f;
-      filter:drop-shadow(0 0 20px #f0f);
-      transform:scale(1.2);
+    .hero h1 {
+      color: #00fff0;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 20px #00fff0, 0 0 40px #00fff0;
     }
 
-    /* CV Download */
-    .cv-download {text-align:center;margin:40px 0;}
-    .cv-download a {
-      text-decoration:none;
-      color:#000;
-      background:#0ff;
-      padding:12px 30px;
-      border-radius:10px;
-      font-weight:bold;
-      box-shadow:0 0 20px #0ff,0 0 40px #0ff;
-      transition:0.3s;
-    }
-    .cv-download a:hover {
-      background:#f0f;
-      box-shadow:0 0 25px #f0f,0 0 60px #f0f;
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      color: #c7f6f8;
+      padding: 0 1rem;
+      font-size: 1rem;
     }
 
-    /* Sections */
-    .section-title {
-      text-align:center;
-      font-size:2em;
-      margin:50px 0 20px;
-      text-shadow:0 0 20px #0ff,0 0 40px #0ff;
-    }
-    .b {color:#0ff;}
+    .highlight { color: #ff00ff; }
 
-    .portfolio-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
-      padding:0 40px 60px;
+    .btn-glow {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: transparent;
+      border: 2px solid #00fff0;
+      color: #00fff0;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: 0.3s;
+      box-shadow: 0 0 10px #00fff0;
+      margin-top: 0.5rem;
     }
+    .btn-glow:hover {
+      background: #00fff0;
+      color: #02010a;
+      box-shadow: 0 0 25px #00fff0;
+    }
+
+    /* ===== Sections ===== */
+    section {
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+    h2.section-title {
+      color: #ff00ff;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 15px #ff00ff;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
     .card {
-      background:rgba(0,255,255,0.1);
-      border:2px solid #0ff;
-      border-radius:12px;
-      text-align:center;
-      padding:40px;
-      font-size:1.2em;
-      transition:0.3s;
-      text-shadow:0 0 10px #0ff;
+      border: 2px solid #00fff0;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 0 15px #00fff0;
+      transition: 0.3s;
+      font-size: 1rem;
     }
     .card:hover {
-      box-shadow:0 0 25px #0ff,0 0 50px #0ff;
-      transform:scale(1.05);
+      border-color: #ff00ff;
+      box-shadow: 0 0 25px #ff00ff;
+      transform: scale(1.05);
     }
 
-    /* About */
-    .about-container {
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:40px;
-      padding:40px 40px;
-      flex-wrap:wrap;
-      text-align:center;
-    }
-    .avatar {
-      width:150px;
-      height:150px;
-      border-radius:50%;
-      object-fit:cover;
-      border:3px solid #0ff;
-      box-shadow:0 0 25px #0ff,0 0 50px #0ff;
-    }
-    .about-text {max-width:600px;color:#ccc;}
-
-    /* Services */
-    .services-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:20px;
-      padding:0 40px 60px;
-    }
-    .service-card {
-      background:rgba(255,0,255,0.1);
-      border:2px solid #f0f;
-      text-align:center;
-      padding:30px;
-      transition:0.3s;
-      text-shadow:0 0 10px #f0f;
-    }
-    .service-card:hover {
-      box-shadow:0 0 25px #f0f,0 0 50px #f0f;
-      transform:scale(1.05);
-    }
-
-    /* Contact */
-    .contact form {
-      display:flex;flex-direction:column;align-items:center;
-      gap:15px;max-width:500px;margin:0 auto 60px;
-    }
-    input,textarea {
-      width:100%;padding:10px;border:2px solid #0ff;
-      background:transparent;color:#fff;
-      font-family:'Orbitron',sans-serif;
-      box-shadow:0 0 10px #0ff;
-    }
-    button {
-      background:#0ff;color:#000;font-weight:bold;
-      border:none;padding:10px 25px;cursor:pointer;transition:0.3s;
-    }
-    button:hover {box-shadow:0 0 20px #0ff,0 0 40px #0ff;}
-
+    /* ===== Footer ===== */
     footer {
-      text-align:center;padding:20px;
-      border-top:2px solid #0ff;
-      box-shadow:0 0 20px #0ff;
-      background:rgba(0,0,0,0.4);
+      background: #030314;
+      padding: 1.5rem;
+      color: #00fff0;
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 2rem;
     }
 
-    /* Responsive */
-    @media (max-width:900px) {
-      header {padding:20px 30px;}
-      nav ul {display:none;flex-direction:column;background:rgba(0,0,0,0.9);position:absolute;top:70px;right:0;width:200px;padding:20px;}
-      nav ul.active {display:flex;}
-      .menu-toggle {display:flex;}
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #030314;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        border-top: 1px solid #00fff0;
+        text-align: center;
+      }
+      .nav-links li { margin: 1rem 0; }
+      .nav-links.active { display: flex; }
     }
 
-    @media (max-width:600px) {
-      .glow-text {font-size:1.8em;}
-      .hero {padding:70px 10px;}
-      .cv-download a {padding:10px 20px;}
-      .section-title {font-size:1.6em;}
-      .about-container {padding:20px;}
-      .portfolio-grid, .services-grid {padding:0 20px 40px;}
+    @media (max-width: 480px) {
+      .logo { font-size: 1.3rem; }
+      .hero h1 { font-size: 1.6rem; }
+      .hero p { font-size: 0.9rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="#0ff" viewBox="0 0 24 24">
-        <path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.42 7.86 10.96.58.11.79-.25.79-.56v-2.02c-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.06-.72.08-.7.08-.7 1.18.08 1.8 1.22 1.8 1.22 1.05 1.79 2.76 1.27 3.43.97.11-.76.41-1.27.75-1.56-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.2-3.1-.12-.3-.52-1.47.12-3.06 0 0 .97-.31 3.18 1.18a10.9 10.9 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.06.75.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.39-5.26 5.68.42.37.8 1.1.8 2.22v3.29c0 .31.21.68.8.56A10.53 10.53 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/>
-      </svg>
-    </div>
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span><span></span><span></span>
-    </div>
+
+  <!-- ===== Navbar ===== -->
+  <header class="navbar">
+    <h1 class="logo">MrBootCoder<span>.</span></h1>
+
     <nav>
-      <ul id="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Portfolio</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
   </header>
 
+  <!-- ===== Hero Section ===== -->
   <section class="hero">
-    <svg class="skull" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="red" stroke-width="2">
-      <path d="M32 2C16 2 2 14 2 30c0 8 4 16 10 20v8c0 2 2 4 4 4h8v-6h8v6h8c2 0 4-2 4-4v-8c6-4 10-12 10-20C62 14 48 2 32 2Z"/>
-      <circle cx="22" cy="28" r="4" fill="red"/><circle cx="42" cy="28" r="4" fill="red"/>
-      <path d="M26 42h12" stroke="red" stroke-width="2"/>
-    </svg>
-    <h1 class="glow-text">HACK THE SYSTEM</h1>
+    <img src="avatar.jpg" alt="Mr. Mahfuz" class="avatar" />
+    <h1>HACK THE SYSTEM</h1>
+    <p>
+      I’m <span class="highlight">Mr. Mahfuz</span> — an <strong>Ethical Hacker</strong> and cybersecurity enthusiast dedicated to identifying and fixing vulnerabilities before attackers do. Passionate about secure systems, ethical hacking, and open-source security research.
+    </p>
+    <a href="https://tinyurl.com/57j6xemu" class="btn-glow">⬇ Download CV</a>
+  </section>
 
-    <div class="social-icons">
-      <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.597 0 0 .598 0 1.333v21.333C0 23.403.597 24 1.325 24H12v-9.333H9.333v-3H12V8.667c0-2.667 1.6-4.133 3.933-4.133 1.133 0 2.107.084 2.393.122v2.773h-1.647c-1.293 0-1.547.615-1.547 1.52v1.973h3.094l-.404 3H15.13V24h7.544C23.403 24 24 23.403 24 22.667V1.333C24 .598 23.403 0 22.675 0z"/></svg></a>
-      <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.615 3.184c-1.632-.446-8.202-.446-8.202-.446s-6.57 0-8.202.446c-1.635.445-1.404 1.36-1.404 1.36s-.23.914.395 1.36c.632.448 2.356.443 2.356.443s.07 3.697 0 4.467c-.07.768-.07 4.467-.07 4.467s-.07 3.7 0 4.467c.07.77 0 4.467 0 4.467s-1.724.004-2.356.448c-.625.445-.395 1.36-.395 1.36s.231.914 1.404 1.36c1.632.446 8.202.446 8.202.446s6.57 0 8.202-.446c1.635-.445 1.404-1.36 1.404-1.36s.23-.915-.395-1.36c-.632-.444-2.356-.448-2.356-.448s-.07-3.698 0-4.467c.07-.77.07-4.467.07-4.467s.07-3.7 0-4.467c-.07-.77 0-4.467 0-4.467s1.724-.004 2.356-.443c.625-.446.395-1.36.395-1.36s-.231-.915-1.404-1.36z"/></svg></a>
-    </div>
-
-    <div class="cv-download">
-      <a href="https://tinyurl.com/57j6xemu">⬇ Download CV</a>
+  <!-- ===== Portfolio Preview ===== -->
+  <section>
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="grid">
+      <div class="card">OpenGL Graphics Translation</div>
+      <div class="card">Portfolio Website</div>
+      <div class="card">Cybersecurity Lab Tools</div>
     </div>
   </section>
 
-  <h2 class="section-title">About Me</h2>
-  <div class="about-container">
-    <img src="avatar.jpg" alt="My Avatar" class="avatar">
-    <div class="about-text">
-      <p>I am <b class="b">Mr. Mahfuz</b>, a passionate and detail-oriented Ethical Hacker skilled in penetration testing, vulnerability assessment, and cybersecurity risk analysis. Proficient with Kali Linux, Metasploit, Nmap, Burp Suite, and Wireshark. Dedicated to improving system defenses and advancing ethical cybersecurity practices.</p>
+  <!-- ===== Services Preview ===== -->
+  <section>
+    <h2 class="section-title">What I Do</h2>
+    <div class="grid">
+      <div class="card">Penetration Testing</div>
+      <div class="card">Web Security Analysis</div>
+      <div class="card">Python & Bash Scripting</div>
     </div>
-  </div>
+  </section>
 
-  <h2 class="section-title">Portfolio</h2>
-  <div class="portfolio-grid">
-    <div class="card">Web Design</div>
-    <div class="card">AI Projects</div>
-    <div class="card">Security Tools</div>
-  </div>
-
-  <h2 class="section-title">Services</h2>
-  <div class="services-grid">
-    <div class="service-card">Cybersecurity Auditing</div>
-    <div class="service-card">Machine Learning Models</div>
-    <div class="service-card">UI/UX Design</div>
-  </div>
-
-  <h2 class="section-title">Contact</h2>
-  <div class="contact">
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="4" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </div>
-
-  <footer>© 2025 Hacker Portfolio | Neon Edition</footer>
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>© 2025 Mr. Mahfuz — Ethical Hacker | Built with ❤️ & Neon</p>
+  </footer>
 
   <script>
-    const toggle = document.getElementById('menu-toggle');
+    const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
-    toggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
   </script>
 </body>
 </html>
-
