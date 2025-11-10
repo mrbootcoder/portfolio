@@ -11,7 +11,7 @@
 This portfolio was built to represent my identity as an **Ethical Hacker** and **Cybersecurity Enthusiast**.  
 It features sections for my background, projects, offered services, and a secure contact form.
 
-**Live Demo:** [🔗 Visit Website](https://yourusername.github.io/)
+**Live Demo:** [🔗 Visit Website](https://mrbootcoder.github.io/portfolio/)
 
 ---
 
@@ -54,4 +54,4 @@ It features sections for my background, projects, offered services, and a secure
 
 1. **Clone** the repository:
    ```bash
-   git clone https://github.com/yourusername/portfolio.git
+   git clone https://github.com/mrbootcoder/portfolio.git
