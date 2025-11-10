@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Mr. Mahfuz — Ethical Hacker</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: #02010a;
+      color: #e0f7fa;
+      overflow-x: hidden;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #030314;
+      box-shadow: 0 0 10px #00fff0;
+      position: relative;
+    }
+
+    .logo {
+      color: #00fff0;
+      font-weight: 700;
+      font-size: 1.6rem;
+    }
+    .logo span { color: #ff00ff; }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li { margin: 0 1rem; }
+
+    .nav-links a {
+      color: #00fff0;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #ff00ff;
+    }
+
+    /* ===== Hamburger ===== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .bar {
+      height: 3px;
+      width: 25px;
+      background-color: #00fff0;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ===== Portfolio Section ===== */
+    .portfolio {
+      padding: 5rem 1rem;
+      text-align: center;
+    }
+
+    .portfolio h2 {
+      color: #00fff0;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .portfolio p {
+      max-width: 700px;
+      color: #c7f6f8;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .project-card {
+      background: rgba(3, 3, 20, 0.6);
+      border: 2px solid #00fff0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 0 20px #00fff0;
+      transition: 0.3s;
+      text-align: left;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: #ff00ff;
+      box-shadow: 0 0 25px #ff00ff;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      color: #ff00ff;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+      color: #c7f6f8;
+      margin-bottom: 1rem;
+    }
+
+    .btn-glow {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      border: 2px solid #00fff0;
+      border-radius: 6px;
+      color: #00fff0;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 0 10px #00fff0;
+    }
+
+    .btn-glow:hover {
+      background: #00fff0;
+      color: #02010a;
+      box-shadow: 0 0 25px #00fff0;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: #030314;
+      padding: 1.5rem;
+      color: #00fff0;
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #030314;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        border-top: 1px solid #00fff0;
+        text-align: center;
+      }
+
+      .nav-links li { margin: 1rem 0; }
+
+      .nav-links.active { display: flex; }
+    }
+
+    @media (max-width: 480px) {
+      .logo { font-size: 1.3rem; }
+      .portfolio h2 { font-size: 1.5rem; }
+      .project-card h3 { font-size: 1.1rem; }
+      .project-card p { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navbar ===== -->
+  <header class="navbar">
+    <h1 class="logo">MrBootCoder<span>.</span></h1>
+
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </header>
+
+  <!-- ===== Portfolio Section ===== -->
+  <section class="portfolio">
+    <h2>My Projects</h2>
+    <p>
+      A showcase of my recent ethical hacking, penetration testing, and security research projects.
+      Each one focuses on identifying vulnerabilities and strengthening system defenses.
+    </p>
+
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="project1.jpg" alt="Project 1">
+        <h3>Web App Penetration Test</h3>
+        <p>
+          Conducted a full web app pentest using Burp Suite, OWASP ZAP, and manual testing.
+          Found multiple XSS and IDOR vulnerabilities responsibly disclosed to the client.
+        </p>
+        <a href="#" class="btn-glow">View Report</a>
+      </div>
+
+      <div class="project-card">
+        <img src="project2.jpg" alt="Project 2">
+        <h3>Network Vulnerability Assessment</h3>
+        <p>
+          Performed internal and external network scans using Nmap & Nessus, leading to remediation
+          of critical misconfigurations and open ports across multiple assets.
+        </p>
+        <a href="#" class="btn-glow">View Details</a>
+      </div>
+
+      <div class="project-card">
+        <img src="project3.jpg" alt="Project 3">
+        <h3>Custom Exploit Script</h3>
+        <p>
+          Developed a Python exploit to demonstrate privilege escalation via insecure file permissions,
+          helping developers patch the vulnerability.
+        </p>
+        <a href="#" class="btn-glow">GitHub</a>
+      </div>
+
+      <div class="project-card">
+        <img src="project4.jpg" alt="Project 4">
+        <h3>CTF Challenges</h3>
+        <p>
+          Solved 50+ Capture The Flag (CTF) challenges across TryHackMe & HackTheBox platforms,
+          specializing in web and binary exploitation.
+        </p>
+        <a href="#" class="btn-glow">View CTF Profile</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>© 2025 Mr. Mahfuz — Ethical Hacker | Built with ❤️ & Neon</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
